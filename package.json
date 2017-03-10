@@ -2,15 +2,11 @@
   "name": "stickycontext",
   "version": "1.0.0",
   "description": "A context that remains accessible globally through a sequence of asynchronous operations",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "dependencies": {
   },
-  "dependencies": {},
   "devDependencies": {
-    "browserify": "^10.0.0",
-    "istanbul-harmony": "0",
-    "mz": "^1.0.2",
     "typescript": "^2.1.6",
     "@types/mocha": "^2.2.39",
     "mocha": "^3.2.0",
@@ -20,20 +16,25 @@
   },
   "scripts": {
     "pretest": "npm run build",
-    "test": "mocha ./dist/test/test.js",
+    "test": "mocha ./dist/test/**/*.test.js",
     "build": "./node_modules/.bin/tsc -p .",
-    "test-cov": "node ./dist/test/test.js node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter dot",
+    "test-cov": "node ./dist/test/**/*.test.js node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter dot",
     "test-travis": "node ./dist/test/**/*.test.js node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter dot",
     "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/benoitdemaegdt/stickyContext.git"
+    "url": "git+https://github.com/MichaelDiguet/stickyContext.git"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "nodejs",
+    "cocon",
+    "cPromise"
+  ],
+  "author": "Michaël Diguet",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/benoitdemaegdt/stickyContext/issues"
+    "url": "https://github.com/MichaelDiguet/stickyContext/issues"
   },
-  "homepage": "https://github.com/benoitdemaegdt/stickyContext#readme"
+  "homepage": "https://github.com/MichaelDiguet/stickyContext#readme"
 }
